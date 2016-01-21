@@ -55,7 +55,6 @@ describe("Redis tests", function () {
             client.hget('category', '2', function (err, reply) {
                 logResponse(err, reply);
             });
-
         });
 
     });
