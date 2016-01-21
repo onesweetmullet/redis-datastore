@@ -58,15 +58,15 @@ describe("Redis tests", function () {
         });
 
         it("attempt to store a hash of a movie", function () {
-            client.hmset('movies:1', 'name', 'movie1', 'description', 'movie 1 description', 'date', Date.now(), 'isActive', '1', function (err, reply) {
+            client.hmset('movies:1', 'name', 'movie1', 'description', 'movie 1 description', 'dateAdded', Date.now(), 'isActive', '1', function (err, reply) {
                 logResponse(err, reply);
             });
 
-            client.hmset('movies:2', 'name', 'movie2', 'description', 'movie 2 description', 'date', Date.now(), 'isActive', '1', function (err, reply) {
+            client.hmset('movies:2', 'name', 'movie2', 'description', 'movie 2 description', 'dateAdded', Date.now(), 'isActive', '1', function (err, reply) {
                 logResponse(err, reply);
             });
 
-            client.hmset('movies:2', 'isActive', '0', function(err, reply) {
+            client.hmset('movies:2', 'isActive', '0', 'dateUpdated', Date.now(), function(err, reply) {
                 logResponse(err, reply);
             })
         });
